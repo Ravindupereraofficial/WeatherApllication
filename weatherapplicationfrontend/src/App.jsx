@@ -1,34 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useAuth0 } from '@auth0/auth0-react'
+import WeatherDashboard from './components/WeatherDashboard'
+import LoginButton from './components/LoginButton'
+import LogoutButton from './components/LogoutButton'
+import Loading from './components/Loading'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { isLoading, error, isAuthenticated, user } = useAuth0()
+
+  if (error) {
+    return <div className="error">Oops... {error.message}</div>
+  }
+
+  if (isLoading) {
+    return <Loading />
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="app">
+      <header className="app-header">
+        <div className="header-content">
+          <h1 className="app-title">Weather Dashboard</h1>
+          <div className="auth-section">
+            {isAuthenticated ? (
+              <div className="user-info">
+                <span>Welcome, {user?.name}</span>
+                <LogoutButton />
+              </div>
+            ) : (
+              <LoginButton />
+            )}
+          </div>
+        </div>
+      </header>
+
+      <main className="main-content">
+        {isAuthenticated ? (
+          <WeatherDashboard />
+        ) : (
+          <div className="welcome-section">
+            <h2>Welcome to Weather Dashboard</h2>
+            <p>Please log in to view weather information for various cities.</p>
+          </div>
+        )}
+      </main>
+    </div>
   )
 }
 
