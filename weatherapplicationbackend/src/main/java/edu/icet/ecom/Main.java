@@ -8,6 +8,7 @@ import org.springframework.cache.annotation.EnableCaching;
 @EnableCaching
 public class Main {
     public static void main(String[] args) {
+        // Application entry point - Spring Boot will bootstrap the context and start embedded server
         SpringApplication.run(Main.class, args);
     }
 }

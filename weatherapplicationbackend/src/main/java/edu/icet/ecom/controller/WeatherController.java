@@ -23,9 +23,10 @@ public class WeatherController {
     public ResponseEntity<WeatherInfo> getWeatherByCityCode(
             @PathVariable String cityCode,
             @AuthenticationPrincipal Jwt jwt) {
-        
-        log.info("Weather request for city code: {} by user: {}", 
-                cityCode, jwt.getSubject());
+
+    // Log high-level access for auditing which user requested which city's data
+    log.info("Weather request for city code: {} by user: {}", 
+        cityCode, jwt.getSubject());
         
         WeatherInfo weatherInfo = weatherService.getWeatherByCityCode(cityCode);
         
@@ -39,10 +40,12 @@ public class WeatherController {
     @GetMapping("/all")
     public ResponseEntity<WeatherResponse> getAllWeatherData(
             @AuthenticationPrincipal Jwt jwt) {
-        
+        // Provide an aggregated payload for the frontend dashboard; includes multiple cities
         log.info("All weather data request by user: {}", jwt.getSubject());
-        
+
         WeatherResponse weatherResponse = weatherService.getAllWeatherData();
         return ResponseEntity.ok(weatherResponse);
     }
+
+    
 }

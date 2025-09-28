@@ -8,11 +8,20 @@ import './App.css'
 function App() {
   const { isLoading, error, isAuthenticated, user } = useAuth0()
 
+  console.log('App.jsx - Auth0 states:', {
+    isLoading,
+    isAuthenticated,
+    error: error?.message,
+    timestamp: new Date().toISOString()
+  })
+
   if (error) {
+    console.log('App.jsx - Auth0 Error:', error.message)
     return <div className="error">Oops... {error.message}</div>
   }
 
   if (isLoading) {
+    console.log('App.jsx - Showing Auth0 loading...')
     return <Loading />
   }
 

@@ -30,26 +30,51 @@ public class SecurityConfig {
     @Value("${auth0.domain}")
     private String domain;
 
+    @Value("${auth0.dev-permissive:false}")
+    private boolean devPermissive;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(authz -> authz
-                .requestMatchers(HttpMethod.GET, "/api/weather/**").authenticated()
-                .anyRequest().permitAll()
-            );
+        http = http.cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                   .csrf(csrf -> csrf.disable());
 
-        // Only enable OAuth2 resource server if Auth0 domain is configured
-        if (domain != null && !domain.isBlank() && !domain.contains("YOUR_AUTH0_DOMAIN")) {
-            http.oauth2ResourceServer(oauth2 -> oauth2
-                .jwt(jwt -> jwt
-                    .decoder(createJwtDecoder())
-                    .jwtAuthenticationConverter(jwtAuthenticationConverter())
-                )
-            );
+        boolean oauthConfigured = false;
+
+        if (devPermissive) {
+            log.warn("auth0.dev-permissive=true - skipping OAuth2 configuration and permitting GET /api/weather/**. NOT FOR PRODUCTION.");
         } else {
-            log.warn("Auth0 domain is not configured (auth0.domain='{}'). OAuth2 resource server will be disabled.", domain);
+            if (domain != null && !domain.isBlank() && !domain.contains("YOUR_AUTH0_DOMAIN")) {
+                try {
+                    JwtDecoder jwtDecoder = createJwtDecoder();
+
+                    http.oauth2ResourceServer(oauth2 -> oauth2
+                            .jwt(jwt -> jwt
+                                    .decoder(jwtDecoder)
+                                    .jwtAuthenticationConverter(jwtAuthenticationConverter())
+                            )
+                    );
+
+                    oauthConfigured = true;
+                    log.info("OAuth2 resource server configured using issuer: https://{}/", domain);
+                } catch (Exception ex) {
+                    log.warn("Could not configure OAuth2 resource server (will run in permissive local mode): {}", ex.toString());
+                }
+            } else {
+                log.warn("Auth0 domain is not configured (auth0.domain='{}'). OAuth2 resource server will be disabled.", domain);
+            }
+        }
+
+    if (devPermissive || !domainConfigured(domain) && !oauthConfigured) {
+        log.warn("Permitting GET /api/weather/** for local development. Do not use in production.");
+        http.authorizeHttpRequests(authz -> authz
+            .requestMatchers(HttpMethod.GET, "/api/weather/**").permitAll()
+            .anyRequest().permitAll()
+        );
+    } else {
+            http.authorizeHttpRequests(authz -> authz
+                    .requestMatchers(HttpMethod.GET, "/api/weather/**").authenticated()
+                    .anyRequest().permitAll()
+            );
         }
 
         return http.build();
@@ -68,7 +93,6 @@ public class SecurityConfig {
         return source;
     }
 
-    // Create JwtDecoder only when needed
     private JwtDecoder createJwtDecoder() {
         String issuerUrl = String.format("https://%s/", domain);
 
@@ -92,5 +116,9 @@ public class SecurityConfig {
         JwtAuthenticationConverter converter = new JwtAuthenticationConverter();
         converter.setJwtGrantedAuthoritiesConverter(authoritiesConverter);
         return converter;
+    }
+
+    private boolean domainConfigured(String domain) {
+        return domain != null && !domain.isBlank() && !domain.contains("YOUR_AUTH0_DOMAIN");
     }
 }

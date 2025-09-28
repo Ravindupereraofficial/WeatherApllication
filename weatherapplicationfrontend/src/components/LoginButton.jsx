@@ -6,6 +6,7 @@ const LoginButton = () => {
   return (
     <button
       className="login-btn"
+      // Triggers Auth0 redirect flow to authenticate the user
       onClick={() => loginWithRedirect()}
     >
       Log In

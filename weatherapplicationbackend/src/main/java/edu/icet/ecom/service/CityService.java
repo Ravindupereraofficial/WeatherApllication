@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import jakarta.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
+import java.util.Collections;
 
 @Service
 @Slf4j
@@ -21,6 +23,7 @@ public class CityService {
 
     @PostConstruct
     public void loadCities() {
+        // Load city metadata from classpath once at startup to avoid repeated IO
         try {
             ClassPathResource resource = new ClassPathResource("cities.json");
             CityList cityList = objectMapper.readValue(resource.getInputStream(), CityList.class);
@@ -33,12 +36,16 @@ public class CityService {
     }
     
     public List<City> getAllCities() {
-        return cities;
+        // Return an immutable-safe empty list if cities haven't been loaded
+        return cities == null ? Collections.emptyList() : cities;
     }
     
     public City getCityByCode(String cityCode) {
+        if (cities == null) {
+            return null;
+        }
         return cities.stream()
-                .filter(city -> city.getCityCode().equals(cityCode))
+                .filter(city -> Objects.equals(city.getCityCode(), cityCode))
                 .findFirst()
                 .orElse(null);
     }

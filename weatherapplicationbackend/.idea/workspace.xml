@@ -5,21 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3dd2990-5fe6-4c46-b613-0de74147a1d5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/icet/ecom/config/ModelMapperConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cities.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/config/AudienceValidator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/config/CacheConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/config/ModelMapperConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/config/SecurityConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/config/WebConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/controller/WeatherController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/exception/GlobalExceptionHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/model/City.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/model/CityList.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/model/OpenWeatherResponse$Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/model/OpenWeatherResponse$Weather.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/model/OpenWeatherResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/model/WeatherInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/model/WeatherResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/service/CityService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edu/icet/ecom/service/WeatherService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../weatherapplicationfrontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/ecom/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/ecom/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/ecom/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/ecom/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/ecom/controller/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/ecom/controller/WeatherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/ecom/model/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/ecom/model/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/ecom/service/CityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/ecom/service/CityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/icet/ecom/service/WeatherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/icet/ecom/service/WeatherService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../weatherapplicationfrontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../weatherapplicationfrontend/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../weatherapplicationfrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../weatherapplicationfrontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../weatherapplicationfrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../weatherapplicationfrontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../weatherapplicationfrontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../weatherapplicationfrontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../weatherapplicationfrontend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../weatherapplicationfrontend/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../weatherapplicationfrontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../weatherapplicationfrontend/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../weatherapplicationfrontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../weatherapplicationfrontend/src/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../weatherapplicationfrontend/src/components/Loading.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../weatherapplicationfrontend/src/components/Loading.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../weatherapplicationfrontend/src/components/LoginButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../weatherapplicationfrontend/src/components/LoginButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../weatherapplicationfrontend/src/components/LogoutButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../weatherapplicationfrontend/src/components/LogoutButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../weatherapplicationfrontend/src/components/WeatherCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../weatherapplicationfrontend/src/components/WeatherCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../weatherapplicationfrontend/src/components/WeatherDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../weatherapplicationfrontend/src/components/WeatherDashboard.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,22 +51,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Ravindupereraofficial"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Ravindupereraofficial&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Ravindupereraofficial/WeatherApllication.git",
-    "accountId": "482d2f02-e7b3-4849-8ad2-e57b3be5a7ef"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Ravindupereraofficial/WeatherApllication.git&quot;,
+    &quot;accountId&quot;: &quot;482d2f02-e7b3-4849-8ad2-e57b3be5a7ef&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 0
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="33HKiqG1YWYcY7WcW1HoXQvkJoB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -55,9 +77,9 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "Rebasing backup/dev-preserve-20250928-193153",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Internship Company projects/Fidenz/weatherapplicationbackend"
+    "last_opened_file_path": "D:/Internship Company projects/final/Fidenz/weatherapplicationbackend"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
